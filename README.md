@@ -1,78 +1,68 @@
-# Lintel
+# CondoGest
 
-A phone-first app for running a residential building. This first cut is a
-clickable **prototype of the manager's side**: a login screen, a home
-dashboard and booking of the common areas, plus sketched Residents, Notices
-and More screens.
+App para a gestão de condomínios residenciais, pensado primeiro para o
+celular. Esta primeira versão é um **protótipo clicável do lado do síndico**:
+tela de login, painel inicial e reserva de áreas comuns, além de esboços das
+telas de Moradores, Avisos e Mais.
 
-It is plain HTML, CSS and JavaScript with no build step and no server, so it
-runs straight from GitHub Pages. All data is sample data kept in your browser.
+É só HTML, CSS e JavaScript, sem etapa de build e sem servidor, então roda
+direto no GitHub Pages. Todos os dados são de exemplo e ficam no navegador.
 
-## Try it
+**Ver no celular:** https://belzuncessousa-rgb.github.io/CondoGest/
 
-Open `index.html` in a browser (or the GitHub Pages link once it is set up),
-preferably on a phone. On a desktop browser it shows as a phone-width column.
-Any email and password signs you in.
+## Como testar
 
-## What's in the prototype
+Abra o link acima no celular (ou o `index.html` no navegador). No computador,
+o app aparece como uma coluna da largura de um celular. Qualquer e-mail e
+senha funcionam.
 
-| Screen | What works |
+## O que tem no protótipo
+
+| Tela | O que funciona |
 | --- | --- |
-| **Login** | Manager / Resident switch (resident shows "coming next"), email + password with validation, "keep me signed in", forgot password, building-code sign-in placeholder. |
-| **Home** | Greeting, the count of booking requests waiting for an answer, today's bookings as a timeline (with a "Now" marker), quick actions, latest notice. |
-| **Bookings → Requests** | Each pending request with date, time, guests, the resident's note, fees and warnings (e.g. over capacity). Approve, or decline with a reason the resident sees. Undo from the toast. |
-| **Bookings → Schedule** | Two-week date strip with booking dots, filter by area, tap a booking for details, cancel it (tap twice to confirm). |
-| **Bookings → Areas** | Six common areas with their rules, fees, approval mode and how booked they are this week. |
-| **Area page** | Capacity, fee, deposit, booking window, cancellation window, availability per day as time slots, the "requires my approval" switch, house rules. Tap a free slot to book it for a resident. |
-| **Residents** | Searchable unit list; tap a unit to see its bookings. |
-| **Notices** | Building announcements with read counts; post a new one. |
-| **More** | Profile, links to future modules (repairs, packages, fees, documents), reset demo data, sign out. |
+| **Login** | Escolha Síndico / Morador (morador mostra "em breve"), e-mail e senha com validação, "manter conectado", esqueci a senha, entrada com código do condomínio (simulada). |
+| **Início** | Saudação, quantos pedidos de reserva aguardam resposta, as reservas de hoje em ordem de horário (com marcador "Agora"), ações rápidas, último aviso. |
+| **Reservas → Pedidos** | Cada pedido com data, horário, pessoas, observação do morador, taxas e alertas (ex.: acima da capacidade). Aprovar, ou recusar com um motivo que o morador vê. Dá para desfazer. |
+| **Reservas → Agenda** | Faixa de duas semanas com marcação dos dias ocupados, filtro por área, detalhes da reserva, cancelamento (toque duas vezes para confirmar). |
+| **Reservas → Áreas** | Seis áreas comuns com regras, taxas, modo de aprovação e ocupação da semana. |
+| **Página da área** | Capacidade, taxa, caução, antecedência, prazo de cancelamento, horários livres por dia, chave "exige minha aprovação", regulamento. Toque num horário livre para reservar em nome de um morador. |
+| **Moradores** | Lista de apartamentos com busca; toque para ver as reservas do apartamento. |
+| **Avisos** | Comunicados do condomínio com contagem de leitura; publicar um novo. |
+| **Mais** | Perfil, atalhos para módulos futuros (chamados, encomendas, boletos, documentos), restaurar dados de exemplo, sair. |
 
-## Decisions made for this first version
+## Decisões desta primeira versão
 
-These were picked without input and are all easy to change:
+Todas são fáceis de mudar:
 
-- **Name: "Lintel"** (the beam over a doorway). Placeholder; easy to rename.
-- **Sample building:** "Alameda Tower", 64 units on 16 floors, managed by
-  "Ana Ribeiro". All people and units are invented.
-- **Common areas:** Party Room (needs approval, $80 + $200 deposit, three
-  4-hour slots), Rooftop BBQ (instant, $25, 3-hour slots), Tennis Court
-  (instant, free, 1-hour slots), Guest Suite (needs approval, $60/night),
-  Co-working Room (instant, free, 2-hour slots) and Pool (no booking; shown
-  closed for repairs to demonstrate that state).
-- **Two booking modes per area:** *instant* (confirmed right away) or
-  *needs approval* (lands in the manager's Requests). The manager can switch
-  each area between them.
-- **Manager can book on behalf of a resident** from any free slot.
-- **Declining needs a reason**, shown to the resident.
-- **Navigation:** bottom tab bar with Home, Bookings, Residents, Notices, More.
-- **Language and formats:** English UI, 24-hour times, US dollars.
-- **Look:** dark lobby-teal with a brass accent; follows the phone's light or
-  dark mode.
-- **Tech:** no framework and no build step for now, so anyone can open and
-  edit it. When this becomes a real app we can move to a framework (React
-  Native / Expo or a PWA) and a backend.
+- **Idioma:** português do Brasil (síndico, condôminos, apto, R$, boleto).
+- **Prédio de exemplo:** "Edifício Alameda", 64 apartamentos em 16 andares,
+  com a síndica "Ana Ribeiro". Pessoas e apartamentos são inventados.
+- **Áreas comuns:** Salão de festas (com aprovação, R$ 250 + caução de
+  R$ 500, três turnos de 4 h), Churrasqueira (imediata, R$ 80, turnos de
+  3 h), Quadra de tênis (imediata, grátis, 1 h), Suíte de hóspedes (com
+  aprovação, R$ 150/noite), Sala de coworking (imediata, grátis, 2 h) e
+  Piscina (sem reserva; aparece fechada para manutenção, para mostrar esse
+  estado).
+- **Dois modos de reserva por área:** *imediata* (confirmada na hora) ou
+  *com aprovação* (vai para os Pedidos do síndico). O síndico troca o modo
+  de cada área.
+- **O síndico pode reservar em nome de um morador** a partir de qualquer
+  horário livre.
+- **Recusar exige um motivo**, que o morador vê.
+- **Navegação:** barra inferior com Início, Reservas, Moradores, Avisos, Mais.
+- **Visual:** verde-petróleo escuro com detalhes em latão; segue o modo claro
+  ou escuro do celular.
+- **Tecnologia:** sem framework e sem build por enquanto. Quando virar um app
+  de verdade, escolhemos a stack (React Native / Expo ou PWA) e um backend.
 
-## Next steps (suggested)
+## Próximos passos sugeridos
 
-1. Resident view: book an area, see my bookings, receive notices.
-2. Repair tickets, package log and fees (the sketched "Soon" items).
-3. Pick the real stack and a backend (accounts, buildings, bookings, payments).
+1. Visão do morador: reservar uma área, ver minhas reservas, receber avisos.
+2. Chamados de manutenção, controle de encomendas e boletos (os itens "Em breve").
+3. Escolher a stack definitiva e o backend (contas, condomínios, reservas, pagamentos).
 
-## Moving this to its own repository
+## Publicação
 
-This code was started on the branch `claude/residential-app` of another
-repository, with no shared history. To move it:
-
-```bash
-# after creating an empty repo on GitHub, e.g. <you>/lintel
-git clone --branch claude/residential-app --single-branch \
-  https://github.com/belzuncessousa-rgb/Corner_lands.git lintel
-cd lintel
-git remote set-url origin https://github.com/<you>/lintel.git
-git push -u origin claude/residential-app:main
-```
-
-Then in the new repository: **Settings → Pages → Source: GitHub Actions**.
-The included workflow publishes the site on every push to `main`.
-Finally, delete the `claude/residential-app` branch from the old repository.
+O workflow `.github/workflows/pages.yml` publica o site no GitHub Pages a cada
+push na `main`. Configuração única no repositório:
+**Settings → Pages → Build and deployment → Source: GitHub Actions**.
